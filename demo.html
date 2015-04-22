@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+</head>
+<body>
+    <h1>使用的是百度的CDN服务</h1>
+
+    <button class="triggerbtn">点这里弹出窗口</button>
+
+    <div class="draggable" style="background-color: #444;">
+        <button class="closebtn">Close this fuck rect</button>
+    </div>
+
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+    <script src="draggable.js"></script>
+    <script>
+        $(function () {
+            $('.draggable').initPopup({
+                triggerBtn: '.triggerbtn',
+                autoShow: false, 
+                overlay: false ,
+                closeBtn: '.closebtn'
+            })
+        })
+    </script>
+
+</body>
+</html>
