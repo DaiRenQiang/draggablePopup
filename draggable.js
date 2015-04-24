@@ -1,4 +1,4 @@
-$.fn.initPopup = function (options) {
+$.fn.initPopup = function(options) {
 
     //设定
     var settings = $.extend({
@@ -43,23 +43,23 @@ $.fn.initPopup = function (options) {
             .css({
                 cursor: 'move'
             })
-            .on('dragstart', function (event) {
+            .on('dragstart', function(event) {
 
-                if(event.clientX) {
+                if (event.clientX) {
                     startLeft = event.clientX;
                     startTop = event.clientY;
-                }else {
+                } else {
                     startLeft = event.originalEvent.clientX;
                     startTop = event.originalEvent.clientY;
-                };
-                
+                }
+
             })
-            .on('dragend', function () {
+            .on('dragend', function() {
                 currX = parseInt(popEle.css('left'));
                 currY = parseInt(popEle.css('top'));
             });
 
-        $('body').on('dragover', function (event) {
+        $('body').on('dragover', function(event) {
 
             if (event.clientX) {
                 var movedX = startLeft - event.clientX;
@@ -67,7 +67,7 @@ $.fn.initPopup = function (options) {
             } else {
                 var movedX = startLeft - event.originalEvent.clientX;
                 var movedY = startTop - event.originalEvent.clientY;
-            };
+            }
 
             popEle.css({
                 left: currX - movedX + 'px',
@@ -88,7 +88,7 @@ $.fn.initPopup = function (options) {
             top: 0,
             display: 'none',
             zIndex: 100
-        }).addClass('overlay').on('click tap', function () {
+        }).addClass('overlay').on('click tap', function() {
             //默认绑定关闭事件
             $(this).hide();
             popEle.hide();
@@ -99,14 +99,14 @@ $.fn.initPopup = function (options) {
 
     //关闭按钮
     if (settings.closeBtn) {
-        $(settings.closeBtn).on('click tap', function () {
+        $(settings.closeBtn).on('click tap', function() {
             popEle.hide();
             $('.overlay').hide();
         })
     }
 
-    if(settings.triggerBtn) {
-        $(settings.triggerBtn).on('click tap', function () {
+    if (settings.triggerBtn) {
+        $(settings.triggerBtn).on('click tap', function() {
             popEle.show();
             $('.overlay').show();
         })
@@ -117,4 +117,5 @@ $.fn.initPopup = function (options) {
         $('.overlay').show();
     }
 
+    return this;
 };
